@@ -269,7 +269,8 @@ def plot_bar(df, col, title, output_file, xlabel=' ', ylabel='Percentage', figsi
     plt.xlabel(xlabel, fontsize = fontsize)
     plt.ylabel(ylabel, fontsize = fontsize)
     plt.xticks(rotation=rotation, fontsize=fontsize+4)
-    plt.ylim(0, 100)
+    plt.ylim(0, 105)
+    plt.yticks([0, 20, 40, 60, 80, 100])
     
 
     plt.savefig(output_file, bbox_inches='tight', dpi=800)
@@ -337,6 +338,8 @@ def leao111(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(cay_df, 'leao1.1.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(cay_df, 'leao1.1.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
 
     order= ['Empowered','Not empowered']
     xlabel = ' '
@@ -379,6 +382,8 @@ def leao211(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(cay_df, 'leao2.1.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(cay_df, 'leao2.1.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     order= ['Supportive','Not supportive']
     xlabel = ' '
@@ -500,6 +505,8 @@ def ecdi324(cay_df, file_path, breakdown = None):
     ecdi324['ecdi3.2.4'] = np.where(condition, 'pass', 'fail')
     
     bs.chi2(ecdi324, 'ecdi3.2.4', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+    bs.chi2(ecdi324, 'ecdi3.2.4', 'Age Group', change_var = 
+            {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     order = ['pass'] # Need to put fail in the future
     xlabel = ' '
@@ -637,6 +644,8 @@ def srho111(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(srho111, 'srho1.1.1_dc', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(srho111, 'srho1.1.1_dc', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
 
     len_result = len(srho111)
     len_pass = len(resultss)
@@ -685,6 +694,8 @@ def srho112(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(srho112, 'srho.1.1.2', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(srho112, 'srho.1.1.2', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     order= ['No Knowledge','Basic','Moderate','High']
     xlabel = ' '
@@ -719,6 +730,8 @@ def srho113(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(srho113, 'srho.1.1.3', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(srho113, 'srho.1.1.3', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     order= ['Pass','Fail']
     xlabel = ' '
@@ -752,6 +765,8 @@ def srho121(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(srho121, 'srho.1.2.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(srho121, 'srho.1.2.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     
     order= ['Confident','Not confident']
@@ -778,6 +793,8 @@ def srho141(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(srho141, 'srho.1.4.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(srho141, 'srho.1.4.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     order= ['Can get condoms','Cannot get condoms']
     xlabel = ' '
@@ -801,6 +818,8 @@ def srho144(cay_df, file_path, breakdown = None):
     srho144['srho.1.4.4'] = srho144.apply(assign_pass_fail, axis=1)
     
     bs.chi2(srho144, 'srho.1.4.4', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+    bs.chi2(srho144, 'srho.1.4.4', 'Age Group', change_var = 
+            {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
     
     order= ['Yes','No']
     xlabel = ' '
@@ -851,6 +870,8 @@ def srho621(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(srho621, 'srho6.2.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(srho621, 'srho6.2.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
 
     order= ['Not responsive','Partially responsive','Highly responsive']
     xlabel = ' '
@@ -876,6 +897,8 @@ def proi111(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(proi111, 'proi1.1.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(proi111, 'proi1.1.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
         
         
     order= ['Exist','None']
@@ -936,6 +959,8 @@ def proo111(cay_df, file_path, breakdown = None):
 
     if breakdown == None:
         bs.chi2(proo111, 'proo1.1.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(proo111, 'proo1.1.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
 
     order= ['Sufficient','Insufficient']
     xlabel = ' '
@@ -973,6 +998,8 @@ def proo141(cay_df, file_path, breakdown = None):
 
     if breakdown == None:
         bs.chi2(proo141, 'proo1.4.1', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(proo141, 'proo1.4.1', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
 
     order= ['Confident','Not confident']
     xlabel = ' '
@@ -998,6 +1025,8 @@ def proo142(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(proo142, 'proo1.4.2', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(proo142, 'proo1.4.2', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
         
     order= ['Know','Do not know']
     xlabel = ' '
@@ -1049,6 +1078,8 @@ def iqei121(pp_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(iqei121, 'iqei1.2.1', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(iqei121, 'iqei1.2.1', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
         
     order= ['Yes','No']
     xlabel = ' '
@@ -1105,7 +1136,9 @@ def proo211(pp_df, file_path, breakdown = None):
     proo211.drop(columns=['average_score'], inplace=True)
     
     if breakdown == None:
-        bs.chi2(proo211, 'proo2.1.1', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)    
+        bs.chi2(proo211, 'proo2.1.1', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(proo211, 'proo2.1.1', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
     
     order= ['Not positive parenting','Somewhat positive parenting', 'Positive parenting']
     xlabel = ""
@@ -1130,7 +1163,9 @@ def proo225(pp_df, file_path, breakdown = None):
     proo225['proo2.2.5'] = ""
     proo225['proo2.2.5'] = proo225.apply(assign_pass_fail, axis=1)
     if breakdown == None:
-        bs.chi2(proo225, 'proo2.2.5', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)    
+        bs.chi2(proo225, 'proo2.2.5', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(proo225, 'proo2.2.5', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Know','Do not know']
     xlabel = ""
@@ -1159,7 +1194,9 @@ def ecdo253_parents(pp_df, file_path, breakdown = None):
     ecdo253_1['ecdo2.5.3'] = ecdo253_1.apply(assign_pass_fail, axis=1)
     
     if breakdown == None:
-        bs.chi2(ecdo253_1, 'ecdo2.5.3', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo253_1, 'ecdo2.5.3', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo253_1, 'ecdo2.5.3', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Know','Do not know']
     xlabel = ' '
@@ -1186,7 +1223,9 @@ def ecdo253_social(sw_df, file_path, breakdown = None):
     ecdo253_2['ecdo2.5.3'] = ""
     ecdo253_2['ecdo2.5.3'] = ecdo253_2.apply(assign_pass_fail, axis=1)
     if breakdown == None:
-        bs.chi2(ecdo253_2, 'ecdo2.5.3', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo253_2, 'ecdo2.5.3', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo253_2, 'ecdo2.5.3', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Know','Do not know']
     xlabel = ""
@@ -1213,7 +1252,9 @@ def ecdo259(pp_df, file_path, breakdown = None):
     ecdo259['ecdo2.5.9'] = ""
     ecdo259['ecdo2.5.9'] = ecdo259.apply(assign_pass_fail, axis=1)
     if breakdown == None:
-        bs.chi2(ecdo259, 'ecdo2.5.9', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo259, 'ecdo2.5.9', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo259, 'ecdo2.5.9', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Exclusively Breastfeeding','Not Exclusively']
     xlabel = ""
@@ -1240,7 +1281,9 @@ def ecdo2510(pp_df, file_path, breakdown = None):
     ecdo2510['ecdo2.5.10'] = np.where((ecdo2510['score'] == 1), 'Received', 'Not received')
     
     if breakdown == None:
-        bs.chi2(ecdo2510, 'ecdo2.5.10', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo2510, 'ecdo2.5.10', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo2510, 'ecdo2.5.10', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Received','Not received']
     xlabel = ""
@@ -1267,7 +1310,9 @@ def ecdo2512(pp_df, file_path, breakdown = None):
     ecdo2512['score'] = ecdo2512.apply(calculate_score, axis=1)
     ecdo2512['ecdo2.5.12'] = np.where((ecdo2512['score'] == 1), 'Have basic facilities', 'Do not have')
     if breakdown == None:
-        bs.chi2(ecdo2512, 'ecdo2.5.12', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo2512, 'ecdo2.5.12', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo2512, 'ecdo2.5.12', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Have basic facilities','Do not have']
     xlabel = ""
@@ -1298,7 +1343,9 @@ def ecdo2514(pp_df, file_path, breakdown = None):
     ecdo2514['score'] = ecdo2514.apply(calculate_score, axis=1)
     ecdo2514['ecdo2.5.14'] = np.where((ecdo2514['score'] == 1), 'Have appropriate water source', 'Do not have')
     if breakdown == None:
-        bs.chi2(ecdo2514, 'ecdo2.5.14', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo2514, 'ecdo2.5.14', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo2514, 'ecdo2.5.14', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Have appropriate water source','Do not have']
     xlabel = ' '
@@ -1325,7 +1372,9 @@ def ecdo271(pp_df, file_path, breakdown = None):
     ecdo271['score'] = ecdo271.apply(calculate_score, axis=1)
     ecdo271['ecdo2.7.1'] = np.where((ecdo271['score'] == 1), 'Enrolled', 'Not enrolled')
     if breakdown == None:
-        bs.chi2(ecdo271, 'ecdo2.7.1', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05) 
+        bs.chi2(ecdo271, 'ecdo2.7.1', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(ecdo271, 'ecdo2.7.1', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     order= ['Enrolled','Not enrolled']
     xlabel = ' '
@@ -1465,6 +1514,8 @@ def proo511(sw_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(proo511, 'proo511_dc', '3', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(proo511, 'proo511_dc', '1', change_var = 
+                {'18 - 24':0, '25 - 30' : 1, '31 - 34': 2, '35 - 60':3, 'Above 60 year':4}, alpha = 0.05)
 
     len_result = len(proo511)
     len_pass = len(result)
@@ -1653,6 +1704,8 @@ def sdg1621(cay_df, file_path, breakdown = None):
     
     if breakdown == None:
         bs.chi2(sdg1621, 'sdg1621', '4', change_var = {'Female':0, 'Male' : 1}, alpha = 0.05)
+        bs.chi2(sdg1621, 'sdg1621', 'Age Group', change_var = 
+                {'10 - 15':0, '16 - 19' : 1, '20 - 24': 2, '25 - 30':3, '31 - 34':4, '35 - 60':5}, alpha = 0.05)
         
     sdg1621.drop(columns=['score'], inplace=True)
     order= ['Experienced','No experience']
