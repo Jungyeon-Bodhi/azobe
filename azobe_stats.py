@@ -116,7 +116,7 @@ def OLS(df, dependent_var, independent_vars):
     
     print(model.summary())
     
-def chi2(df2, dependent_var, col, change_var, alpha=0.05):
+def chi2(df2, dependent_var, col, change_var=None, alpha=0.05):
     if change_var != None:
         df2[col] = df2[col].replace(change_var)
     contingency_table = pd.crosstab(df2[dependent_var], df2[col])
